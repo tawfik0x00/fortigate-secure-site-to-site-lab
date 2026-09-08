@@ -70,7 +70,7 @@ between them.
 | FGT-BRANCH-A | port2     | 192.168.122.69    | `http://192.168.122.69` |
 | FGT-BRANCH-B | port2     | 192.168.122.6     | `http://192.168.122.6`  |
 
-### BR1 VLAN Addressing (FGT-BRANCH-A — port3)
+### BR-A VLAN Addressing (FGT-BRANCH-A — port3)
 
 | VLAN | Name       | Network        | Gateway     |
 |------|------------|----------------|-------------|
@@ -81,7 +81,7 @@ between them.
 | 40   | Server_1   | 10.10.40.0/24  | 10.10.40.1  |
 | 50   | Server_2   | 10.10.50.0/24  | 10.10.50.1  |
 
-### BR2 VLAN Addressing (FGT-BRANCH-B — port3)
+### BR- VLAN Addressing (FGT-BRANCH-B — port3)
 
 | VLAN | Name       | Network        | Gateway     |
 |------|------------|----------------|-------------|
