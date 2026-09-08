@@ -1,0 +1,13 @@
+# Secrets
+*.key
+*.pem
+*.crt
+.env
+
+# GNS3 generated files
+*.gns3~
+autosave/
+
+# OS/editor
+.DS_Store
+*.swp
