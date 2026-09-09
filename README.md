@@ -81,7 +81,7 @@ between them.
 | 40   | Server_1   | 10.10.40.0/24  | 10.10.40.1  |
 | 50   | Server_2   | 10.10.50.0/24  | 10.10.50.1  |
 
-### BR- VLAN Addressing (FGT-BRANCH-B — port3)
+### BR-B VLAN Addressing (FGT-BRANCH-B — port3)
 
 | VLAN | Name       | Network        | Gateway     |
 |------|------------|----------------|-------------|
@@ -102,10 +102,13 @@ between them.
 | 4 | WAN reachability verified (ping between FortiGates) | ✅ Done |
 | 5 | Management access via GUI (port2 NAT) | ✅ Done |
 | 6 | VLAN segmentation on port3 (BR1 × 6 VLANs, BR2 × 4 VLANs) | ✅ Done |
-| 7 | Switch trunk & access port config (SW1 / SW3) | 🔜 Next |
-| 8 | IPsec Site-to-Site VPN tunnel | 🔜 Upcoming |
-| 9 | Firewall policies | 🔜 Upcoming |
-| 10 | Full end-to-end validation | 🔜 Upcoming |
+| 7 | Switch trunk & access port config (IOU1, IOU2, SW1–SW4) | ✅ Done |
+| 8 | FortiGate DHCP servers per VLAN (BR1 & BR2) | ✅ Done |
+| 9 | Linux/Alpine host IP assignment & gateway reachability | 🔄 In Progress |
+| 10 | Screenshots — device configs & ping proofs | 🔄 In Progress |
+| 11 | IPsec Site-to-Site VPN tunnel (FGT-A ↔ FGT-B) | 🔜 Next |
+| 12 | Firewall policies — inter-site VLAN access rules | 🔜 Upcoming |
+| 13 | Full end-to-end validation & advanced design | 🔜 Upcoming |
 
 ---
 
@@ -119,19 +122,46 @@ docs/
 │   └── 02-fortigate-appliance-import.md  — Import FortiGate & IOU appliances
 │
 └── 02-topology-setup/
-    └── FORITGATE/
-        ├── 01-CLOUD_CONNECTION/
-        │   ├── 00-gns3-topology.md           — Cloud nodes + FortiGate topology
-        │   └── 01-fortigate-basic-config.md  — WAN interface config & ping proof
-        │
-        ├── 02-NAT_CONNECTION/
-        │   └── 02-nat-management-access.md   — port2 DHCP + GUI access
-        │
-        └── 03-VLANS/
-            ├── BRANCH-A/
-            │   └── 01-vlan-setup-br1.md      — BR1 VLAN sub-interfaces on port3
-            └── BRANCH-B/
-                └── 01-vlan-setup-br2.md      — BR2 VLAN sub-interfaces on port3
+    ├── FORITGATE/
+    │   ├── 01-CLOUD_CONNECTION/
+    │   │   ├── 00-gns3-topology.md           — Cloud nodes + FortiGate topology
+    │   │   └── 01-fortigate-basic-config.md  — WAN interface config & ping proof
+    │   │
+    │   ├── 02-NAT_CONNECTION/
+    │   │   └── 02-nat-management-access.md   — port2 DHCP + GUI access
+    │   │
+    │   ├── 03-VLANS/
+    │   │   ├── BRANCH-A/
+    │   │   │   └── 01-vlan-setup-br1.md      — BR1 VLAN sub-interfaces on port3
+    │   │   └── BRANCH-B/
+    │   │       └── 01-vlan-setup-br2.md      — BR2 VLAN sub-interfaces on port3
+    │   │
+    │   └── 04-DHCP/
+    │       ├── BRANCH-A/
+    │       │   └── 01-dhcp-br1.md            — DHCP server per VLAN on FGT-A
+    │       └── BRANCH-B/
+    │           └── 01-dhcp-br2.md            — DHCP server per VLAN on FGT-B
+    │
+    ├── SWITCHES/
+    │   ├── BRANCH-A/
+    │   │   ├── IOU1/  — Distribution trunk to FGT-A + SW1 + SW2
+    │   │   ├── SW1/   — Access switch: HR, IT, Finance, Management
+    │   │   └── SW2/   — Access switch: Server_1, Server_2
+    │   └── BRANCH-B/
+    │       ├── IOU2/  — Distribution trunk to FGT-B + SW3 + SW4
+    │       ├── SW3/   — Access switch: Sales, Support, Guest
+    │       └── SW4/   — Access switch: Management
+    │
+    ├── HOSTS/
+    │   ├── BRANCH-A/
+    │   │   └── 01-linux-host-config.md       — Alpine/Linux DHCP + static setup
+    │   └── BRANCH-B/
+    │       └── 01-linux-host-config.md       — Alpine/Linux DHCP + static setup
+    │
+    └── IPSEC-VPN/                            — [Upcoming]
+        ├── 01-ipsec-phase1-config.md
+        ├── 02-ipsec-phase2-config.md
+        └── 03-firewall-policies.md
 ```
 
 ---
@@ -146,6 +176,10 @@ docs/
 6. Enable [management GUI access](docs/02-topology-setup/FORITGATE/02-NAT_CONNECTION/02-nat-management-access.md) via port2.
 7. Configure [BR1 VLANs](docs/02-topology-setup/FORITGATE/03-VLANS/BRANCH-A/01-vlan-setup-br1.md) on FGT-BRANCH-A port3.
 8. Configure [BR2 VLANs](docs/02-topology-setup/FORITGATE/03-VLANS/BRANCH-B/01-vlan-setup-br2.md) on FGT-BRANCH-B port3.
+9. Configure [BR1 DHCP servers](docs/02-topology-setup/FORITGATE/04-DHCP/BRANCH-A/01-dhcp-br1.md) on FGT-BRANCH-A.
+10. Configure [BR2 DHCP servers](docs/02-topology-setup/FORITGATE/04-DHCP/BRANCH-B/01-dhcp-br2.md) on FGT-BRANCH-B.
+11. Verify [Branch-A host connectivity](docs/02-topology-setup/HOSTS/BRANCH-A/01-linux-host-config.md).
+12. Verify [Branch-B host connectivity](docs/02-topology-setup/HOSTS/BRANCH-B/01-linux-host-config.md).
 
 ---
 
