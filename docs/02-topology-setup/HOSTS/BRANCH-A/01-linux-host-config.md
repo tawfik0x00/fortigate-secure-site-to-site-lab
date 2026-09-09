@@ -131,14 +131,39 @@ ping -c 4 <Linux-6-IP>
 
 ## Screenshots
 
-> 📸 Screenshots will be added here.
+### VLAN 10 — HR
 
-<!-- 
-Suggested screenshots:
-  - ip addr output for each host (showing assigned IP)
-  - ping to gateway for each VLAN
-  - ping between hosts in same VLAN
--->
+![VLAN10 HR host IP configuration](VLAN10_HR/VLAN10_HR.png)
+
+---
+
+### VLAN 20 — IT
+
+![VLAN20 IT host IP configuration](VLAN20_IT/VLAN20_IT.png)
+
+---
+
+### VLAN 30 — Finance
+
+![VLAN30 Finance host IP configuration](VLAN30_FINANCE/VLAN30_Finance.png)
+
+---
+
+### VLAN 40 — Server 1
+
+![VLAN40 Server1 static IP configuration](VLAN40_SERVER1/VLAN40_SERVER1.png)
+
+---
+
+### VLAN 50 — Server 2
+
+![VLAN50 Server2 static IP configuration](VLAN50_SERVER2/VLAN50_SERVER2.png)
+
+---
+
+### VLAN 99 — Management
+
+![VLAN99 Management host IP configuration](VLAN99_MANAGEMENT/VLAN99_MANAGEMENT.png)
 
 ---
 

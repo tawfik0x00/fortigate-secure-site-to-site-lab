@@ -73,14 +73,27 @@ ping -c 4 <AlpineLinux6-IP>
 
 ## Screenshots
 
-> 📸 Screenshots will be added here.
+### VLAN 110 — Sales
 
-<!--
-Suggested screenshots:
-  - ip addr output for each host (showing assigned IP)
-  - ping to gateway for each VLAN
-  - ping between hosts in same VLAN
--->
+![VLAN110 Sales host IP configuration](VLAN110_Sales/VLAN110_Sales.png)
+
+---
+
+### VLAN 120 — Support
+
+![VLAN120 Support host IP configuration](VLAN120_Support/VLAN120_SUPPORT.png)
+
+---
+
+### VLAN 130 — Guest
+
+![VLAN130 Guest host IP configuration](VLAN130_Guest/VLAN130_GUEST.png)
+
+---
+
+### VLAN 199 — Management
+
+![VLAN199 Management host IP configuration](VLAN199_Management/VLAN199_MANAGEMENT.png)
 
 ---
 

@@ -208,7 +208,13 @@ execute log display
 To allow additional VLAN pairs, repeat the address object and policy pattern
 above, incrementing policy IDs for each new pair.
 
-Example pairs to add in future iterations:
-- IT (VLAN20) ↔ Support (VLAN120)
-- Finance (VLAN30) ↔ Guest (VLAN130)
-- Management (VLAN99) ↔ Management (VLAN199)
+Example pairs — status:
+- HR (VLAN 10) ↔ Sales (VLAN 110) — template above
+- Management (VLAN 99) ↔ Management (VLAN 199) — **✅ Implemented & verified**
+
+---
+
+## Next Step
+
+→ *See: [`04-cross-site-mgmt-poc.md`](04-cross-site-mgmt-poc.md) — Cross-site Management access proof of concept*
+
