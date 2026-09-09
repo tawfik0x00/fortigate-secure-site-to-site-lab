@@ -88,7 +88,7 @@ interface Ethernet0/1
  description TRUNK_TO_SW3
  switchport trunk encapsulation dot1q
  switchport mode trunk
- switchport trunk allowed vlan 110,120,130,199
+ switchport trunk allowed vlan 110,120,130
  no shutdown
 exit
 
@@ -96,7 +96,7 @@ interface Ethernet0/2
  description TRUNK_TO_SW4
  switchport trunk encapsulation dot1q
  switchport mode trunk
- switchport trunk allowed vlan 110,120,130,199
+ switchport trunk allowed vlan 199
  no shutdown
 exit
 
